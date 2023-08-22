@@ -1,8 +1,8 @@
-import { Notiflix } from 'notiflix';
+import Notiflix from 'notiflix';
 
 const form = document.querySelector('.form');
 const delayInput = document.querySelector('input[name=delay]');
-const stepInput = documnet.querySelector('input[name=step]');
+const stepInput = document.querySelector('input[name=step]');
 const amountInput = document.querySelector('input[name=amount]');
 
 form.addEventListener('submit', onSubmit);
@@ -19,7 +19,7 @@ function onSubmit(evt) {
     posiotion = i;
     createPromise(posiotion, delay)
       .then(({ posiotion, delay }) => {
-        Notiflix.Notify.success(`Fulfilled promise ${posiotion} in ${delay}`);
+        Notiflix.Notify.success(`Fulfilled promise ${posiotion} in ${delay}ms`);
       })
       .catch(({ posiotion, delay }) => {
         Notiflix.Notify.failure(`Rejected promise ${posiotion} in ${delay}ms`);
