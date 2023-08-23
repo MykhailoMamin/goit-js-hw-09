@@ -13,16 +13,16 @@ function onSubmit(evt) {
   let delay = Number(delayInput.value);
   let step = Number(stepInput.value);
   let amount = Number(amountInput.value);
-  let posiotion = 0;
+  let position = 0;
 
   for (let i = 1; i <= amount; i += 1) {
-    posiotion = i;
-    createPromise(posiotion, delay)
-      .then(({ posiotion, delay }) => {
-        Notiflix.Notify.success(`Fulfilled promise ${posiotion} in ${delay}ms`);
+    position = i;
+    createPromise(position, delay)
+      .then(({ position: pos, delay: d }) => {
+        Notiflix.Notify.success(`Fulfilled promise ${pos} in ${d}ms`);
       })
-      .catch(({ posiotion, delay }) => {
-        Notiflix.Notify.failure(`Rejected promise ${posiotion} in ${delay}ms`);
+      .catch(({ position: pos, delay: d }) => {
+        Notiflix.Notify.failure(`Rejected promise ${pos} in ${d}ms`);
       });
     delay += step;
   }
